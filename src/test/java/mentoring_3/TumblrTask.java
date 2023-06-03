@@ -22,7 +22,7 @@ public class TumblrTask {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.tumblr.com/");
         WebElement logIn = driver.findElement(By.xpath("//a[.='Log in']"));
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         logIn.click();
         Thread.sleep(2000);
         WebElement register = driver.findElement(By.xpath("//button[.='Continue with email']"));
@@ -38,9 +38,10 @@ public class TumblrTask {
         passportRepeat.sendKeys("123");
         WebElement submit = driver.findElement(By.xpath("//span[contains(text(),'Next')]"));
         submit.click();
-        WebElement text = driver.findElement(By.xpath("//div[@class='CkEXb']"));
+        WebElement text = driver.findElement(By.xpath("//div[@class='a0A37 hAkP2']"));
         String actualText = text.getText().trim();
-        String  expectedText = "The password must be at least 8 characters long";
+        String  expectedText = "The password must be at least 8 characters long.";
+
         Assert.assertEquals(actualText,expectedText);
 
     }
